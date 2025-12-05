@@ -1,26 +1,148 @@
 @import "tailwindcss";
 
+/* ===== Design Tokens ===== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Soft, Calm Color Palette */
+  --cream: #f9f7f4;
+  --cream-dark: #f0ede8;
+  --sand: #e8e0d5;
+  --mocha: #4a403a;
+  --mocha-light: #6b5d54;
+  --sage: #a8bca1;
+  --sage-dark: #8fa887;
+  --terracotta: #c4a484;
+  --blush: #e8d5d0;
+
+  /* Semantic Colors */
+  --background: var(--cream);
+  --foreground: var(--mocha);
+  --muted: var(--sand);
+  --accent: var(--sage);
+  --accent-hover: var(--sage-dark);
+
+  /* Shadows - Soft & Diffuse */
+  --shadow-sm: 0 2px 8px rgba(74, 64, 58, 0.04);
+  --shadow-md: 0 4px 20px rgba(74, 64, 58, 0.08);
+  --shadow-lg: 0 8px 40px rgba(74, 64, 58, 0.12);
+  --shadow-xl: 0 16px 60px rgba(74, 64, 58, 0.16);
 }
 
 @theme inline {
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+  --color-sand: var(--sand);
+  --color-mocha: var(--mocha);
+  --color-mocha-light: var(--mocha-light);
+  --color-sage: var(--sage);
+  --color-sage-dark: var(--sage-dark);
+  --color-terracotta: var(--terracotta);
+  --color-blush: var(--blush);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-lato);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ===== Base Styles ===== */
+* {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-lato), system-ui, sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ===== Typography ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--mocha);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+p {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--mocha-light);
+}
+
+/* ===== Custom Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sand);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mocha-light);
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: var(--sage);
+  color: white;
+}
+
+/* ===== Focus States ===== */
+:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 2px;
+}
+
+/* ===== Utility Classes ===== */
+.text-balance {
+  text-wrap: balance;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--mocha) 0%, var(--mocha-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Soft glass effect */
+.glass {
+  background: rgba(249, 247, 244, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Smooth image loading */
+img {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+img[data-loading="true"] {
+  opacity: 0;
 }
