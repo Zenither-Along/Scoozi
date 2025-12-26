@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Flame, Leaf, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { Section, StaggerContainer, StaggerItem } from "@/components/ui/Section";
+import { Section } from "@/components/ui/Section";
 import { menuItems, MenuItem } from "@/lib/menu-data";
 
 // Categories to show on homepage with their data IDs
@@ -97,51 +97,55 @@ export function Menu() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="group bg-cream rounded-2xl overflow-hidden shadow-md transition-shadow duration-300"
               >
-                {/* Image */}
-                <div className="relative aspect-4/3 overflow-hidden">
-                  <div 
-                    className="absolute inset-0 bg-linear-to-br from-sand to-blush/50 group-hover:scale-110 transition-transform duration-500"
-                    style={{
-                      backgroundImage: `url('${item.image}')`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                    }}
-                  />
-                  {/* Badges */}
-                  <div className="absolute top-4 left-4 flex gap-2">
-                    {item.popular && (
-                      <span className="bg-sage text-white text-xs font-medium px-3 py-1 rounded-full">
-                        Popular
-                      </span>
-                    )}
+                <Link 
+                  href={`/menu/${item.id}`}
+                  className="block group bg-cream rounded-2xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl"
+                >
+                  {/* Image */}
+                  <div className="relative aspect-4/3 overflow-hidden">
+                    <div 
+                      className="absolute inset-0 bg-linear-to-br from-sand to-blush/50 group-hover:scale-110 transition-transform duration-500"
+                      style={{
+                        backgroundImage: `url('${item.image}')`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                      }}
+                    />
+                    {/* Badges */}
+                    <div className="absolute top-4 left-4 flex gap-2">
+                      {item.popular && (
+                        <span className="bg-sage text-white text-xs font-medium px-3 py-1 rounded-full shadow-xs">
+                          Popular
+                        </span>
+                      )}
+                    </div>
+                    {/* Tags */}
+                    <div className="absolute top-4 right-4 flex gap-2">
+                      {item.vegetarian && (
+                        <span className="bg-cream/90 text-sage-dark p-1.5 rounded-full shadow-xs backdrop-blur-xs" title="Vegetarian">
+                          <Leaf size={14} />
+                        </span>
+                      )}
+                      {item.spicy && (
+                        <span className="bg-cream/90 text-terracotta p-1.5 rounded-full shadow-xs backdrop-blur-xs" title="Spicy">
+                          <Flame size={14} />
+                        </span>
+                      )}
+                    </div>
                   </div>
-                  {/* Tags */}
-                  <div className="absolute top-4 right-4 flex gap-2">
-                    {item.vegetarian && (
-                      <span className="bg-cream/90 text-sage-dark p-1.5 rounded-full" title="Vegetarian">
-                        <Leaf size={14} />
-                      </span>
-                    )}
-                    {item.spicy && (
-                      <span className="bg-cream/90 text-terracotta p-1.5 rounded-full" title="Spicy">
-                        <Flame size={14} />
-                      </span>
-                    )}
-                  </div>
-                </div>
 
-                {/* Content */}
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-serif text-xl text-mocha">{item.name}</h3>
-                    <span className="font-medium text-sage-dark">{item.price}</span>
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="font-serif text-xl text-mocha group-hover:text-sage-dark transition-colors">{item.name}</h3>
+                      <span className="font-medium text-sage-dark">{item.price}</span>
+                    </div>
+                    <p className="text-mocha-light text-sm leading-relaxed line-clamp-2">
+                      {item.description}
+                    </p>
                   </div>
-                  <p className="text-mocha-light text-sm leading-relaxed line-clamp-2">
-                    {item.description}
-                  </p>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </AnimatePresence>

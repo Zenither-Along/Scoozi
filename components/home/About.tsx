@@ -65,12 +65,12 @@ export function About() {
               className="space-y-6 text-mocha-light"
             >
               <p className="text-lg leading-relaxed">
-                Scoozi isn't just a café; it's a celebration of our rich culinary heritage reimagined for the modern palate. 
+                Scoozi isn&apos;t just a café; it&apos;s a celebration of our rich culinary heritage reimagined for the modern palate. 
                 We believe in the art of slow living, where every meal is an opportunity to connect with our roots.
               </p>
               <p className="leading-relaxed">
                 Our kitchen blends traditional local ingredients—like fresh bamboo shoots, aromatic herbs, and locally sourced rice—with contemporary techniques. 
-                Whether it's our signature Ondla curry or a perfectly brewed cappuccino, every dish tells a story of our land.
+                Whether it&apos;s our signature Ondla curry or a perfectly brewed cappuccino, every dish tells a story of our land.
               </p>
               <p className="leading-relaxed">
                 We invite you to pause, breathe, and experience the warmth of true hospitality. 

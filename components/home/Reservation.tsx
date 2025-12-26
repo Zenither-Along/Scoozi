@@ -74,7 +74,7 @@ export function Reservation() {
               </h2>
               <p className="text-mocha-light text-lg max-w-md">
                 Secure your spot for an unforgettable dining experience. 
-                Whether it's a romantic dinner or a family gathering, we're ready to serve you.
+                Whether it&apos;s a romantic dinner or a family gathering, we&apos;re ready to serve you.
               </p>
             </motion.div>
 
@@ -87,7 +87,7 @@ export function Reservation() {
             >
               <h3 className="font-serif text-2xl text-mocha mb-4">Special Requests?</h3>
               <p className="text-mocha-light mb-6">
-                Celebrating a birthday or anniversary? Let us know and we'll make it extra special.
+                Celebrating a birthday or anniversary? Let us know and we&apos;ll make it extra special.
               </p>
               <div className="flex items-center gap-3 text-sage-dark font-medium">
                 <Phone size={20} />

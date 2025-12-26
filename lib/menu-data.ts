@@ -223,7 +223,7 @@ export const menuItems: MenuItem[] = [
   {
     id: 22,
     name: "Ondla Oma",
-    description: "Traditional Bodo rice cake cooked with aromatic herbs",
+    description: "Traditional Bodo pork cooked in a savory rice paste gravy",
     price: "₹150",
     category: "traditional",
     image: "/menu/ondla-oma.jpeg",
@@ -233,7 +233,7 @@ export const menuItems: MenuItem[] = [
   {
     id: 23,
     name: "Ondla Dao",
-    description: "Steamed rice cake served with traditional accompaniments",
+    description: "Traditional Bodo chicken cooked in a savory rice paste gravy",
     price: "₹130",
     category: "traditional",
     image: "/menu/ondla-dao.jpeg",
@@ -242,7 +242,7 @@ export const menuItems: MenuItem[] = [
   {
     id: 24,
     name: "Ondla Meoyai",
-    description: "Rice cake preparation with bamboo shoot, authentic Bodo flavor",
+    description: "Savory rice paste gravy cooked with bamboo shoots",
     price: "₹160",
     category: "traditional",
     image: "/menu/ondla-meoyai.jpeg",
@@ -261,7 +261,7 @@ export const menuItems: MenuItem[] = [
   {
     id: 27,
     name: "Kusia",
-    description: "Traditional Bodo preparation, rich in local flavors",
+    description: "Freshwater eel delicacy prepared with traditional herbs",
     price: "₹170",
     category: "traditional",
     image: "/menu/kusia.jpeg",
@@ -269,7 +269,7 @@ export const menuItems: MenuItem[] = [
   {
     id: 28,
     name: "Hangsw",
-    description: "Signature Bodo dish, slow-cooked to perfection",
+    description: "Signature Bodo duck curry, slow-cooked to perfection",
     price: "₹200",
     category: "traditional",
     image: "/menu/hangsw.jpeg",

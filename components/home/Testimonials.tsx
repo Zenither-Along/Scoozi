@@ -14,7 +14,7 @@ const testimonials = [
   },
   {
     id: 2,
-    text: "The Masor Tenga here reminds me of my grandmother's cooking. Authentic Assamese flavors that you rarely find anywhere else.",
+    text: "The Masor Tenga here reminds me of my grandmother&apos;s cooking. Authentic Assamese flavors that you rarely find anywhere else.",
     author: "Rajib B.",
     role: "Food Enthusiast",
   },

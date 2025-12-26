@@ -116,70 +116,74 @@ export default function MenuPage() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="group bg-white rounded-3xl overflow-hidden shadow-md transition-all duration-300"
                 >
-                  {/* Image */}
-                  <div className="relative aspect-4/3 overflow-hidden">
-                    <div 
-                      className="absolute inset-0 bg-linear-to-br from-sand to-blush/50 group-hover:scale-110 transition-transform duration-700"
-                      style={{
-                        backgroundImage: `url('${item.image}')`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                      }}
-                    />
-                    
-                    {/* Overlay on hover */}
-                    <div className="absolute inset-0 bg-mocha/0 group-hover:bg-mocha/10 transition-colors duration-300" />
-                    
-                    {/* Badges */}
-                    <div className="absolute top-4 left-4 flex gap-2">
-                      {item.popular && (
-                        <motion.span
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          className="bg-sage text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-md"
-                        >
-                          ★ Popular
-                        </motion.span>
-                      )}
+                  <Link 
+                    href={`/menu/${item.id}`}
+                    className="block group bg-white rounded-3xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl"
+                  >
+                    {/* Image */}
+                    <div className="relative aspect-4/3 overflow-hidden">
+                      <div 
+                        className="absolute inset-0 bg-linear-to-br from-sand to-blush/50 group-hover:scale-110 transition-transform duration-700"
+                        style={{
+                          backgroundImage: `url('${item.image}')`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                        }}
+                      />
+                      
+                      {/* Overlay on hover */}
+                      <div className="absolute inset-0 bg-mocha/0 group-hover:bg-mocha/10 transition-colors duration-300" />
+                      
+                      {/* Badges */}
+                      <div className="absolute top-4 left-4 flex gap-2">
+                        {item.popular && (
+                          <motion.span
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            className="bg-sage text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-md"
+                          >
+                            ★ Popular
+                          </motion.span>
+                        )}
+                      </div>
+                      
+                      {/* Dietary Tags */}
+                      <div className="absolute top-4 right-4 flex gap-2">
+                        {item.vegetarian && (
+                          <span 
+                            className="bg-white/95 text-sage-dark p-2 rounded-full shadow-md backdrop-blur-sm"
+                            title="Vegetarian"
+                          >
+                            <Leaf size={16} />
+                          </span>
+                        )}
+                        {item.spicy && (
+                          <span 
+                            className="bg-white/95 text-terracotta p-2 rounded-full shadow-md backdrop-blur-sm"
+                            title="Spicy"
+                          >
+                            <Flame size={16} />
+                          </span>
+                        )}
+                      </div>
                     </div>
-                    
-                    {/* Dietary Tags */}
-                    <div className="absolute top-4 right-4 flex gap-2">
-                      {item.vegetarian && (
-                        <span 
-                          className="bg-white/95 text-sage-dark p-2 rounded-full shadow-md"
-                          title="Vegetarian"
-                        >
-                          <Leaf size={16} />
-                        </span>
-                      )}
-                      {item.spicy && (
-                        <span 
-                          className="bg-white/95 text-terracotta p-2 rounded-full shadow-md"
-                          title="Spicy"
-                        >
-                          <Flame size={16} />
-                        </span>
-                      )}
-                    </div>
-                  </div>
 
-                  {/* Content */}
-                  <div className="p-6">
-                    <div className="flex justify-between items-start gap-4 mb-3">
-                      <h3 className="font-serif text-2xl text-mocha group-hover:text-sage-dark transition-colors">
-                        {item.name}
-                      </h3>
-                      <span className="shrink-0 font-semibold text-lg text-sage-dark bg-sage/10 px-3 py-1 rounded-full">
-                        {item.price}
-                      </span>
+                    {/* Content */}
+                    <div className="p-6">
+                      <div className="flex justify-between items-start gap-4 mb-3">
+                        <h3 className="font-serif text-2xl text-mocha group-hover:text-sage-dark transition-colors">
+                          {item.name}
+                        </h3>
+                        <span className="shrink-0 font-semibold text-lg text-sage-dark bg-sage/10 px-3 py-1 rounded-full">
+                          {item.price}
+                        </span>
+                      </div>
+                      <p className="text-mocha-light leading-relaxed line-clamp-2">
+                        {item.description}
+                      </p>
                     </div>
-                    <p className="text-mocha-light leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
+                  </Link>
                 </motion.div>
               ))}
             </AnimatePresence>
